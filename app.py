@@ -20,5 +20,10 @@ def index():
         res = requests.post(targeturl, json=data)
         return render_template('res.html', res=res)
 
+@app.route("/test", methods=['POST'])
+def test():
+    print("[TEST] Test endpoint posted")
+    return ('', 204)
+
 if __name__ == '__main__':
     app.run()
