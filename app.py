@@ -18,7 +18,7 @@ def index():
         
         targeturl = request.form['target']
         res = requests.post(targeturl, json=data)
-        return render_template('res.html', res=res)
+        return render_template('res.html', res=res, str=json.dumps(data))
 
 @app.route("/test", methods=['POST'])
 def test():
