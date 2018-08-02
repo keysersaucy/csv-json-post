@@ -1,9 +1,9 @@
 import csv
 import json
-import urllib
-from flask import (Flask, request, redirect, send_from_directory)
+import requests
+from flask import (Flask, request, redirect, send_from_directory, render_template)
 
-app = Flask(__name__, static_folder='static', static_url_path='')
+app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -16,11 +16,9 @@ def index():
         for row in csv.DictReader(text, quotechar='"', quoting=csv.QUOTE_ALL, skipinitialspace=True):
             data.append(row)
         
-        jsonstr = json.dumps(data).encode('utf8')
         targeturl = request.form['target']
-        req = urllib.request.Request(targeturl, data=jsonstr, headers={'content-type': 'application/json'})
-        res = urllib.request.urlopen(req)
-        return redirect('/')
+        res = requests.post(targeturl, json=data)
+        return render_template('res.html', res=res)
 
 if __name__ == '__main__':
     app.run()
