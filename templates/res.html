@@ -2,11 +2,9 @@
 <html>
 
 <body>
-    {% if res %}
-        <h4>STATUSCODE: {{res.status_code}}</h4>
-        <h5>REASON: {{res.reason}}</h5>
-        <h5>TEXT: {{res.text}}</h5>
-    {% endif %}
+    <h4>STATUSCODE: {{res.status_code}}</h4>
+    <h5>REASON: {{res.reason}}</h5>
+    <h5>TEXT: {{res.text}}</h5>
     <h5>JSON</h5>
     <pre>
         {{str}}
