@@ -13,8 +13,12 @@
         </label>
         <input type="text" name="target" id="form-targe">
         <br />
-        <label for="form-file">
-            <input type="submit" value="convert and send" />
+        {% for m in middlewares %}
+            <input type="checkbox" name="middlewares" id={{m}} value={{m}}>
+            <label for={{m}}>{{m}}</label>
+            <br />
+        {% endfor %}
+        <input type="submit" value="convert and send" />
     </form>
 </body>
 
