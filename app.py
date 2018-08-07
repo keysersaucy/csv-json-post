@@ -42,14 +42,11 @@ def index():
             for x in request.form.getlist('middlewares'):
                 data = middlewares[x](data)
 
-        targeturl = request.form['target']
-        res = requests.post(targeturl, json=data)
+        target_url = request.form['target']
+        res = None
+        if target_url and target_url != request.base_url:
+            res = requests.post(target_url, json=data)
         return render_template('res.html', res=res, str=json.dumps(data, indent=4, sort_keys=True))
-
-@app.route("/test", methods=['POST'])
-def test():
-    print("[TEST] Test endpoint posted")
-    return ('', 204)
 
 if __name__ == '__main__':
     app.run()
