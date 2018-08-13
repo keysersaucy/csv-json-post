@@ -8,18 +8,67 @@ app = Flask(__name__)
 def middleware_factory():
     def aggregate_dob(data):
         for row in data:
-            if 'birth.year' in row and 'birth.month' in row and 'birth.day' in row:
-                by = row['birth.year']
-                bm = row['birth.month']
-                bd = row['birth.day']
-                row['birth'] = {
-                    'year': by,
-                    'month': bm,
-                    'day': bd
+            if 'TotalPurchasePrice.Amount' in row and 'TotalPurchasePrice.Currency' in row 
+            and 'FacePrice.Amount' in row and 'FacePrice.Currency' in row
+            and 'SellPrice.Amount' in row and 'SellPrice.Currency' in row
+            and 'POType.ExpirationType' in row and 'POType.ExpirationDays' in row
+            and 'Payments.Amount' in row and 'Payments.PaymentModeId' in row and 'Payments.PaymentMode' in row 
+            and 'Payments.PayPalEmail' in row and 'Payments.PayPalTransactionId' in row:
+                
+                ta = row['TotalPurchasePrice.Amount']
+                tc = row['TotalPurchasePrice.Currency']
+                row['TotalPurchasePrice'] = {
+                    'Amount': ta,
+                    'Currency': tc
                 }
-                del row['birth.year']
-                del row['birth.month']
-                del row['birth.day']
+                del row['TotalPurchasePrice.Amount']
+                del row['TotalPurchasePrice.Currency']
+                
+                fa = row['FacePrice.Amount']
+                fc = row['FacePrice.Currency']
+                row['FacePrice'] = {
+                    'Amount': fa,
+                    'Currency': fc
+                }
+                del row['FacePrice.Amount']
+                del row['FacePrice.Currency']
+                
+                sa = row['SellPrice.Amount']
+                sc = row['SellPrice.Currency']
+                row['SellPrice'] = {
+                    'Amount': sa,
+                    'Currency': sc
+                }
+                del row['SellPrice.Amount']
+                del row['SellPrice.Currency']
+
+                pot = row['POType.ExpirationType']
+                pod = row['POType.ExpirationDays']
+                row['POType'] = {
+                    'Amount': pot,
+                    'Currency': pod
+                }
+                del row['POType.ExpirationType']
+                del row['POType.ExpirationDays']                
+                
+                pa = row['Payments.Amount']
+                pmid = row['Payments.PaymentModeId']
+                pm = row['Payments.PaymentMode']
+                pe = row['Payments.PayPalEmail']
+                ptid = row['Payments.PayPalTransactionId']
+                row['Payments'] = {
+                    'Amount': pa,
+                    'PaymentModeId': pmid,
+                    'PaymentMode': pm,
+                    'PayPalEmail': pe,
+                    'PayPalTransactionId': ptid
+                }
+                del row['Payments.Amount']
+                del row['Payments.PaymentModeId']
+                del row['Payments.PaymentMode']
+                del row['Payments.PayPalEmail']
+                del row['Payments.PayPalTransactionId']            
+                
         return data
     return {
         'aggregate_dob': aggregate_dob
