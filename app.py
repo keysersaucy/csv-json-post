@@ -76,7 +76,7 @@ def middleware_factory():
                 del row['Payments.PayPalEmail']
                 del row['Payments.PayPalTransactionId']            
                 
-        return text1, text2, data
+        return data
     return {
         'aggregate_dob': aggregate_dob
     }
