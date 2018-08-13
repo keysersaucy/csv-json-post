@@ -99,9 +99,10 @@ def index():
                 data = middlewares[x](data)
 
         target_url = request.form['target']
+        text01 = request.form[text1, text2, text3]
         res = None
         if target_url and target_url != request.base_url:
-            res = requests.post(target_url, text1, text2, json=data)
+            res = requests.post(target_url, text01, json=data)
         return render_template('res.html', res=res, str=json.dumps(data, indent=4, sort_keys=True))
 
 if __name__ == '__main__':
