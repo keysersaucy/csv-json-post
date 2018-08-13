@@ -5,6 +5,14 @@ from flask import (Flask, request, redirect, render_template)
 
 app = Flask(__name__)
 
+text1 = 'HTTP/1.1'
+text2 = 'Connection: Keep-Alive'
+text3 = 'Accept: application/json'
+text4 = 'Host: api.ticketutils.net'
+text5 = 'X-Token: 4644945949495429116'
+text6 = 'X-Signature: oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc='
+text7 = 'Content-Type: application/json; charset=utf-8'
+
 def middleware_factory():
     def aggregate_dob(data):
         for row in data:
