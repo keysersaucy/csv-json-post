@@ -74,7 +74,7 @@ def middleware_factory():
                 
         return data
     return {
-        'aggregate_dob': aggregate_dob
+        'text1' : text1, 'text2':text2, 'aggregate_dob': aggregate_dob
     }
 
 
