@@ -5,9 +5,6 @@ from flask import (Flask, request, redirect, render_template)
 
 app = Flask(__name__)
 
-def middleware_factory():
-    def aggregate_dob(data):
-        
         text1 = 'HTTP/1.1'
         text2 = 'Connection: Keep-Alive'
         text3 = 'Accept: application/json'
@@ -15,6 +12,12 @@ def middleware_factory():
         text5 = 'X-Token: 4644945949495429116'
         text6 = 'X-Signature: oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc='
         text7 = 'Content-Type: application/json; charset=utf-8'
+
+
+def middleware_factory():
+    def aggregate_dob(data):
+        
+
         
         for row in data:
             if 'TotalPurchasePrice.Amount' in row and 'TotalPurchasePrice.Currency' in row and 'FacePrice.Amount' in row and 'FacePrice.Currency' in row and 'SellPrice.Amount' in row and 'SellPrice.Currency' in row and 'POType.ExpirationType' in row and 'POType.ExpirationDays' in row and 'Payments.Amount' in row and 'Payments.PaymentModeId' in row and 'Payments.PaymentMode' in row and 'Payments.PayPalEmail' in row and 'Payments.PayPalTransactionId' in row:
@@ -98,7 +101,7 @@ def index():
         target_url = request.form['target']
         res = None
         if target_url and target_url != request.base_url:
-            res = requests.post(target_url, json=data)
+            res = requests.post(target_url, text1, text2, json=data)
         return render_template('res.html', res=res, str=json.dumps(data, indent=4, sort_keys=True))
 
 if __name__ == '__main__':
