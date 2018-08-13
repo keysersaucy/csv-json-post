@@ -90,7 +90,7 @@ def index():
     else:
         csvfile = request.files['file']
         text = [line.decode('utf-8') for line in csvfile]
-        data = [text1, text2]
+        data = []
         for row in csv.DictReader(text, quotechar='"', quoting=csv.QUOTE_ALL, skipinitialspace=True):
             data.append(row)
 
