@@ -5,20 +5,17 @@ from flask import (Flask, request, redirect, render_template)
 
 app = Flask(__name__)
 
-        text1 = 'HTTP/1.1'
-        text2 = 'Connection: Keep-Alive'
-        text3 = 'Accept: application/json'
-        text4 = 'Host: api.ticketutils.net'
-        text5 = 'X-Token: 4644945949495429116'
-        text6 = 'X-Signature: oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc='
-        text7 = 'Content-Type: application/json; charset=utf-8'
+text1 = 'HTTP/1.1'
+text2 = 'Connection: Keep-Alive'
+text3 = 'Accept: application/json'
+text4 = 'Host: api.ticketutils.net'
+text5 = 'X-Token: 4644945949495429116'
+text6 = 'X-Signature: oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc='
+text7 = 'Content-Type: application/json; charset=utf-8'
 
 
 def middleware_factory():
     def aggregate_dob(data):
-        
-
-        
         for row in data:
             if 'TotalPurchasePrice.Amount' in row and 'TotalPurchasePrice.Currency' in row and 'FacePrice.Amount' in row and 'FacePrice.Currency' in row and 'SellPrice.Amount' in row and 'SellPrice.Currency' in row and 'POType.ExpirationType' in row and 'POType.ExpirationDays' in row and 'Payments.Amount' in row and 'Payments.PaymentModeId' in row and 'Payments.PaymentMode' in row and 'Payments.PayPalEmail' in row and 'Payments.PayPalTransactionId' in row:
                 
