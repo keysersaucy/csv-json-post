@@ -40,8 +40,8 @@ def middleware_factory():
                 pot = row['POType.ExpirationType']
                 pod = row['POType.ExpirationDays']
                 row['POType'] = {
-                    'Amount': pot,
-                    'Currency': pod
+                    'ExpirationType': pot,
+                    'ExpirationDays': pod
                 }
                 del row['POType.ExpirationType']
                 del row['POType.ExpirationDays']                
