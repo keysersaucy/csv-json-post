@@ -87,7 +87,7 @@ def index():
                 data = middlewares[x](data)
 
         target_url = request.form['target']
-        headers = {'Connection':'Keep-Alive','Accept':'application/json','Host':'api.ticketutils.net','X-Token':'4644945949495429116','X-Signature':'oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc=','Content-Type':'application/json; charset=utf-8'}
+        headers = {'Connection':'Keep-Alive','Accept':'application/json','Host':'api.ticketutils.net','X-Token':'5463309236326405451','X-Signature':'oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc=','Content-Type':'application/json; charset=utf-8'}
         res = None
         if target_url and target_url != request.base_url:
             res = requests.post(target_url, json=data, headers=headers)
