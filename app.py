@@ -15,7 +15,7 @@ text7 = 'Content-Type: application/json; charset=utf-8'
 
 
 def middleware_factory():
-    def aggregate_dob(data):
+    def nest(data):
         for row in data:
             if 'TotalPurchasePrice.Amount' in row and 'TotalPurchasePrice.Currency' in row and 'FacePrice.Amount' in row and 'FacePrice.Currency' in row and 'SellPrice.Amount' in row and 'SellPrice.Currency' in row and 'POType.ExpirationType' in row and 'POType.ExpirationDays' in row and 'Payments.Amount' in row and 'Payments.PaymentModeId' in row and 'Payments.PaymentMode' in row and 'Payments.PayPalEmail' in row and 'Payments.PayPalTransactionId' in row:
                 
@@ -75,7 +75,7 @@ def middleware_factory():
                 
         return data
     return {
-        'aggregate_dob': aggregate_dob
+        'Nest': nest
     }
 
 
@@ -98,7 +98,7 @@ def index():
         target_url = request.form['target']
         res = None
         if target_url and target_url != request.base_url:
-            res = requests.post(target_url, Ticket=data)
+            res = requests.post(target_url, json=data)
         return render_template('res.html', res=res, str=json.dumps(data, indent=4, sort_keys=True))
 
 if __name__ == '__main__':
