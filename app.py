@@ -5,15 +5,7 @@ from flask import (Flask, request, redirect, render_template)
 
 app = Flask(__name__)
 
-headers = {
-    'HTTP/1.1',
-    'Connection': 'Keep-Alive',
-    'Accept': 'application/json',
-    'Host': 'api.ticketutils.net',
-    'X-Token': '4644945949495429116',
-    'X-Signature': 'oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc=',
-    'Content-Type': 'application/json; charset=utf-8'
-}
+headers = {'HTTP/1.1','Connection': 'Keep-Alive','Accept': 'application/json','Host': 'api.ticketutils.net','X-Token': '4644945949495429116','X-Signature': 'oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc=','Content-Type': 'application/json; charset=utf-8'}
 
 def middleware_factory():
     def nest(data):
