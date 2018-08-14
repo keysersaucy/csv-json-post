@@ -88,10 +88,10 @@ def index():
                 data = middlewares[x](data)
 
         target_url = request.form['target']
-        headers = {'HTTP/1.1','Connection': 'Keep-Alive','Accept': 'application/json','Host': 'api.ticketutils.net','X-Token': '4644945949495429116','X-Signature': 'oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc=','Content-Type': 'application/json; charset=utf-8'}
+        headers = {'HTTP/1.1','Connection':'Keep-Alive','Accept':'application/json','Host':'api.ticketutils.net','X-Token':'4644945949495429116','X-Signature':'oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc=','Content-Type':'application/json; charset=utf-8'}
         res = None
         if target_url and target_url != request.base_url:
-            res = requests.post(target_url, json=data, headers=headers)
+            res = requests.post(target_url, json=data)
         return render_template('res.html', res=res, str=json.dumps(data, indent=4, sort_keys=True))
 
 if __name__ == '__main__':
