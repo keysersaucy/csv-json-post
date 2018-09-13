@@ -55,18 +55,18 @@ def middleware_factory():
                 p11 = row['PurchaseOrder.IsShippingCostIncludedinTicketPrice']
                 p12 = row['Shipping']
                 row['PurchaseOrder'] = {
-                    'Currency' = p1,
-                    'PODate' = p2,
-                    'ShipFromContactId' = p3,
-                    'BillToAddressId' = p4,
-                    'ShipToAddressId' = p5,
-                    'VendorCSRId' = p6,
-                    'POType' = p7,
-                    'Consignment' = p8,
-                    'ExternalOrderNumber' = p9,
-                    'Notes' = p10,
-                    'IsShippingCostIncludedinTicketPrice' = p11,
-                    'Shipping' = p12
+                    'Currency': p1,
+                    'PODate': p2,
+                    'ShipFromContactId': p3,
+                    'BillToAddressId': p4,
+                    'ShipToAddressId': p5,
+                    'VendorCSRId': p6,
+                    'POType': p7,
+                    'Consignment': p8,
+                    'ExternalOrderNumber': p9,
+                    'Notes': p10,
+                    'IsShippingCostIncludedinTicketPrice': p11,
+                    'Shipping': p12
                 }
                 del row['PurchaseOrder.Currency']
                 del row['PurchaseOrder.PODate']
@@ -97,9 +97,9 @@ def middleware_factory():
                 ts2 = row['TicketSeats.Barcode']
                 ts3 = row['TicketSeats.ReferenceNumber']
                 row['TicketSeats'] = {
-                    'Seat' = ts1,
-                    'Barcode' = ts2,
-                    'ReferenceNumber' = ts3
+                    'Seat': ts1,
+                    'Barcode': ts2,
+                    'ReferenceNumber': ts3
                 }
                 del row['TicketSeats.Seat']
                 del row['TicketSeats.Barcode']
@@ -109,9 +109,9 @@ def middleware_factory():
                 so2 = row['SplitOptions.Splits']
                 so3 = row['SplitOptions.OverrideSplitOption']
                 row['SplitOptions'] = {
-                    'SplitOption' = so1,
-                    'Splits' = so2,
-                    'OverrideSplitOption' = so3
+                    'SplitOption': so1,
+                    'Splits': so2,
+                    'OverrideSplitOption': so3
                 }
                 del row['SplitOptions.SplitOption']
                 del row['SplitOptions.Splits']
@@ -121,9 +121,9 @@ def middleware_factory():
                 ih2 = row['InHandDetails.InHandDays']
                 ih3 = row['InHandDetails.InHandDate']
                 row['InHandDetails'] = {
-                    'InHandStatus' = ih1,
-                    'InHandDays' = ih2,
-                    'InHandDate' = ih3
+                    'InHandStatus': ih1,
+                    'InHandDays': ih2,
+                    'InHandDate': ih3
                 }
                 del row['InHandDetails.InHandStatus']
                 del row['InHandDetails.InHandDays']
@@ -132,8 +132,8 @@ def middleware_factory():
                 fp1 = row['FacePrice.Currency']
                 fp2 = row['FacePrice.Amount']
                 row['FacePrice'] = {
-                    'Currency' = fp1,
-                    'Amount' = fp2
+                    'Currency': fp1,
+                    'Amount': fp2
                 }
                 del row['FacePrice.Currency']
                 del row['FacePrice.Amount']
@@ -141,8 +141,8 @@ def middleware_factory():
                 pp1 = row['PurchasePrice.Currency']
                 pp2 = row['PurchasePrice.Amount']
                 row['PurchasePrice'] = {
-                    'Currency' = pp1,
-                    'Amount' = pp2
+                    'Currency': pp1,
+                    'Amount': pp2
                 }
                 del row['PurhcasePrice.Currency']
                 del row['PurchasePrice.Amount']
@@ -150,8 +150,8 @@ def middleware_factory():
                 sp1 = row['SellPrice.Currency']
                 sp2 = row['SellPrice.Amount']
                 row['SellPrice'] = {
-                    'Currency' = sp1,
-                    'Amount' = sp2
+                    'Currency': sp1,
+                    'Amount': sp2
                 }
                 del row['SellPrice.Currency']
                 del row['SellPrice.Amount']
@@ -191,40 +191,40 @@ def middleware_factory():
                 t33 = row['Tickets.ZonePricing']
                 t34 = row['Tickets.Location']
                 row ['Tickets'] = {
-                    'SHEventId' = t1,
-                    'EventId' = t2,
-                    'VenueId' = t3,
-                    'Event' = t4,
-                    'EventDate' = t5,
-                    'Venue' = t6,
-                    'Section' = t7,
-                    'Quantity' = t8,
-                    'MaskedQuantity' = t9,
-                    'DoNotWaste' = t10,
-                    'Seating' = t11,
-                    'Stock' = t12,
-                    'SHDeliveryMethod' = t13,
-                    'PredeliverToSH' = t14,
-                    'TicketSeats' = t15,
-                    'PublicNotes' = t16,
-                    'InternalNotes' = t17,
-                    'BrokerNotes' = t18,
-                    'ControlNotes' = t19,
-                    'SplitOptions' = t20,
-                    'InHandDetails' = t21,
-                    'DeliveryOption' = t22,
-                    'ReferenceNumber' = t23,
-                    'FacePrice' = t24,
-                    'PurchasePrice' = t25,
-                    'SellPrice' = t26,
-                    'Discount' = t27,
-                    'Overs' = t28,
-                    'Tax' = t29,
-                    'Tags' = t30,
-                    'MinimumPayout' = t31,
-                    'HideSeats' = t32,
-                    'ZonePricing' = t33,
-                    'Location' = t34
+                    'SHEventId': t1,
+                    'EventId': t2,
+                    'VenueId': t3,
+                    'Event': t4,
+                    'EventDate': t5,
+                    'Venue': t6,
+                    'Section': t7,
+                    'Quantity': t8,
+                    'MaskedQuantity': t9,
+                    'DoNotWaste': t10,
+                    'Seating': t11,
+                    'Stock': t12,
+                    'SHDeliveryMethod': t13,
+                    'PredeliverToSH': t14,
+                    'TicketSeats': t15,
+                    'PublicNotes': t16,
+                    'InternalNotes': t17,
+                    'BrokerNotes': t18,
+                    'ControlNotes': t19,
+                    'SplitOptions': t20,
+                    'InHandDetails': t21,
+                    'DeliveryOption': t22,
+                    'ReferenceNumber': t23,
+                    'FacePrice': t24,
+                    'PurchasePrice': t25,
+                    'SellPrice': t26,
+                    'Discount': t27,
+                    'Overs': t28,
+                    'Tax': t29,
+                    'Tags': t30,
+                    'MinimumPayout': t31,
+                    'HideSeats': t32,
+                    'ZonePricing': t33,
+                    'Location': t34
                 }
                 del row['Tickets.SHEventId']
                 del row['Tickets.EventId']
@@ -264,8 +264,8 @@ def middleware_factory():
                 z1 = row['Zones.ZoneCode']
                 z2 = row['Zones.Broadcast']
                 row['Zones'] = {
-                    'ZoneCode' = z1,
-                    'Broadcast' = z2
+                    'ZoneCode': z1,
+                    'Broadcast': z2
                 }
                 del row['Zones.ZoneCode']
                 del row['Zones.Broadcast']
@@ -273,8 +273,8 @@ def middleware_factory():
                 b1 = row['Broadcast.BroadcastTo']
                 b2 = row['Zones']
                 row['Broadcast'] = {
-                    'BroadcastTo' = b1,
-                    'Zones' = b2
+                    'BroadcastTo': b1,
+                    'Zones': b2
                 }
                 del row['Broadcast.BroadcastTo']
                 del row['Zones']
