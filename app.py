@@ -302,7 +302,7 @@ def index():
                 data = middlewares[x](data)
 
         target_url = request.form['target']
-        headers = {'POST https://api.ticketutils.com/POS/v3.1/Tickets','X-Signature':'oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc=','X-Token':'5463309236326405451','Content-Type':'application/json','X-API-Version':'3'}
+        headers = {'POST https://api.ticketutils.com/POS/v3.1/Tickets','X-Signature':'oL+R0dsVP9GSJAjfY7KgvlIkEq6qJThivdpWzPoibOc=','X-Token':'5463309236326405451','Content-Type':'application/json'}
         res = None
         if target_url and target_url != request.base_url:
             res = requests.post(target_url, json=data, headers=headers)
