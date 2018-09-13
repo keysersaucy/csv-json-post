@@ -189,6 +189,7 @@ def middleware_factory():
             t32 = row['Tickets.HideSeats']
             t33 = row['Tickets.ZonePricing']
             t34 = row['Tickets.Location']
+            t35 = row['Tickets.Row']
             row ['Tickets'] = {
                 'SHEventId': t1,
                 'EventId': t2,
@@ -197,6 +198,7 @@ def middleware_factory():
                 'EventDate': t5,
                 'Venue': t6,
                 'Section': t7,
+                'Row': t35,
                 'Quantity': t8,
                 'MaskedQuantity': t9,
                 'DoNotWaste': t10,
@@ -259,6 +261,7 @@ def middleware_factory():
             del row['Tickets.HideSeats']
             del row['Tickets.ZonePricing']
             del row['Tickets.Location']
+            del row['Tickets.Row']
 
             z1 = row['Zones.ZoneCode']
             z2 = row['Zones.Broadcast']
