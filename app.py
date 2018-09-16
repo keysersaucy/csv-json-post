@@ -8,6 +8,9 @@ app = Flask(__name__)
 def middleware_factory():
     def nest(data):
         for row in data:
+            
+            a1 = 
+            
             c1 = row['Consignment.Operation']
             c2 = row['Consignment.Commission']
             row['Consignment'] = {
@@ -283,7 +286,7 @@ def middleware_factory():
 
         return data
     return {
-        'Nest': nest
+        'nest1': nest
     }
 
 
