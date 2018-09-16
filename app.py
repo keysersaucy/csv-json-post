@@ -17,7 +17,7 @@ def middleware_factory():
                 }
                 del row['Consignment.Operation']
                 del row['Consignment.Commission']
-"""
+x = """
             s1 = row['Shipping.Cost']
             s2 = row['Shipping.TrackingNumber']
             s3 = row['Shipping.Service']
