@@ -309,8 +309,8 @@ def index():
         target_url = request.form['target']
         headers = {'POST https://api.ticketutils.com/POS/v3.1/Tickets','X-Signature: UUkIadAHSyOBVFUYslm9YWxNeAWGkyxgXtPdUNAcJOs=','X-Token: 4644945949495429116','Content-Type: application/json','X-API-Version: 3'}
         res = None
-        #if target_url and target_url != request.base_url:
-        #    res = requests.post(target_url, json=data, headers=headers)
+        if target_url and target_url != request.base_url:
+            res = requests.post(target_url, json=data, headers=headers)
         return render_template('res.html', res=res, str=json.dumps(data, indent=4, sort_keys=True))
 
 if __name__ == '__main__':
