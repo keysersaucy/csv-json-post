@@ -281,10 +281,13 @@ def middleware_factory():
                 }
                 del row['Broadcast.BroadcastTo']
                 del row['Zones']
-                
-                if 'Consignment' in row and 'Shipping' in row and 'PurchaseOrder' in row and 'SpecOption' in row and 'TicketSeats' in row and 'SplitOptions' in row and 'InHandDetails' in row and 'FacePrice' in row and 'PurchasePrice' in row and 'SellPrice' in row and 'Tickets' in row and 'Zones' in row and 'Broadcast' in row:
-   
+        
         return data
+        for row in data:
+                if 'Consignment' in row and 'Shipping' in row and 'PurchaseOrder' in row and 'SpecOption' in row and 'TicketSeats' in row and 'SplitOptions' in row and 'InHandDetails' in row and 'FacePrice' in row and 'PurchasePrice' in row and 'SellPrice' in row and 'Tickets' in row and 'Zones' in row and 'Broadcast' in row:
+                    return data
+   
+        
     return {
         'Nest': nest
     }
