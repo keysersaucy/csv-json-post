@@ -118,7 +118,7 @@ def middleware_factory():
                 del row['SellPrice.Currency']
                 del row['SellPrice.Amount']
     
-                if 'Consignment' in row and 'Shipping' in row and 'PurchaseOrder.Currency' in row and 'PurchaseOrder.PODate' in row and 'PurchaseOrder.ShipFromContactId' in row and 'PurchaseOrder.BillToAddressId' in row and 'PurchaseOrder.ShipToAddressId' in row and 'PurchaseOrder.VendorCSRId' in row and 'PurchaseOrder.POType' in row and 'PurchaseOrder.ExternalOrderNumber' in row and 'PurchaseOrder.Notes' in row and 'PurchaseOrder.IsShippingCostIncludedinTicketPrice' in row and 'SpecOption' in row and 'TicketSeats' in row and 'SplitOptions' in row and 'InHandDetails' in row and 'FacePrice' in row and 'PurchasePrice' in row and 'SellPrice' in row and 'Tickets.SHEventId' in row:
+                if 'Consignment' in row and 'Shipping' in row and 'PurchaseOrder.Currency' in row and 'PurchaseOrder.PODate' in row and 'PurchaseOrder.ShipFromContactId' in row and 'PurchaseOrder.BillToAddressId' in row and 'PurchaseOrder.ShipToAddressId' in row and 'PurchaseOrder.VendorCSRId' in row and 'PurchaseOrder.POType' in row and 'PurchaseOrder.ExternalOrderNumber' in row and 'PurchaseOrder.Notes' in row and 'PurchaseOrder.IsShippingCostIncludedinTicketPrice' in row and 'SpecOption' in row and 'TicketSeats' in row and 'SplitOptions' in row and 'InHandDetails' in row and 'FacePrice' in row and 'PurchasePrice' in row and 'SellPrice' in row and 'Tickets.SHEventId' in row and 'Tickets.EventId' in row and 'Tickets.VenueId' in row and 'Tickets.Event' in row and 'Tickets.EventDate' in row and 'Tickets.Venue' in row and 'Tickets.Section' in row and 'Tickets.Row' in row and 'Tickets.Quantity' in row and 'Tickets.MaskedQuantity' in row and 'Tickets.DoNotWaste' in row and 'Tickets.Seating' in row and 'Tickets.Stock' in row and 'Tickets.SHDeliveryMethod' in row and 'Tickets.PredeliverToSH' in row and 'Tickets.PublicNotes' in row and 'Tickets.InternalNotes' in row and 'Tickets.BrokerNotes' in row and 'Tickets.ControlNotes' in row and 'Tickets.DeliveryOption' in row and 'Tickets.ReferenceNumber' in row and 'Tickets.Discount' in row and 'Tickets.Overs' in row and 'Tickets.Tax' in row and 'Tickets.Tags' in row and 'Tickets.MinimumPayout' in row and 'Tickets.HideSeats' in row and 'Tickets.ZonePricing' in row and 'Tickets.Location' in row:
                     
                     p1 = row['PurchaseOrder.Currency']
                     p2 = row['PurchaseOrder.PODate']
@@ -159,32 +159,114 @@ def middleware_factory():
                     del row['PurchaseOrder.IsShippingCostIncludedinTicketPrice']
                     del row['Shipping']
                     
-                    t1 = row['SpecOption']
-                    t2 = row['TicketSeats']
-                    t3 = row['SplitOptions']
-                    t4 = row['InHandDetails']
-                    t5 = row['FacePrice']
-                    t6 = row['PurchasePrice']
-                    t7 = row['SellPrice']
-                    t8 = row['Tickets.SHEventId']
+                    t1 = row['Tickets.SHEventId']
+                    t2 = row['Tickets.EventId']
+                    t3 = row['Tickets.VenueId']
+                    t4 = row['Tickets.Event']
+                    t5 = row['Tickets.EventDate']
+                    t6 = row['Tickets.Venue']
+                    t7 = row['Tickets.Section']
+                    t8 = row['Tickets.Row']
+                    t9 = row['Tickets.Quantity']
+                    t10 = row['Tickets.MaskedQuantity']
+                    t11 = row['Tickets.DoNotWaste']
+                    t12 = row['Tickets.Seating']
+                    t13 = row['Tickets.Stock']
+                    t14 = row['Tickets.SHDeliveryMethod']
+                    t15 = row['Tickets.PredeliverToSH']
+                    t16 = row['TicketSeats']
+                    t17 = row['Tickets.PublicNotes']
+                    t18 = row['Tickets.InternalNotes']
+                    t19 = row['Tickets.BrokerNotes']
+                    t20 = row['Tickets.ControlNotes']
+                    t21 = row['SplitOptions']
+                    t22 = row['InHandDetails']
+                    t23 = row['Tickets.DeliveryOption']
+                    t24 = row['Tickets.ReferenceNumber']
+                    t25 = row['FacePrice']
+                    t26 = row['PurchasePrice']
+                    t27 = row['SellPrice']
+                    t28 = row['Tickets.Discount']
+                    t29 = row['Tickets.Overs']
+                    t30 = row['Tickets.Tax']
+                    t31 = row['Tickets.Tags']
+                    t32 = row['Tickets.MinimumPayout']
+                    t33 = row['Tickets.HideSeats']
+                    t34 = row['Tickets.ZonePricing']
+                    t35 = row['Tickets.Location']
                     row['Tickets'] = {
-                        'SpecOption': t1,
-                        'TicketSeats': t2,
-                        'SplitOptions': t3,
-                        'InHandDetails': t4,
-                        'FacePrice': t5,
-                        'PurchasePrice': t6,
-                        'SellPrice': t7,
-                        'Tickets.SHEventId': t8,
+                        'Tickets.SHEventId': t1,
+                        'Tickets.EventId': t2,
+                        'Tickets.VenueId': t3,
+                        'Tickets.Event': t4,
+                        'Tickets.EventDate': t5,
+                        'Tickets.Venue': t6,
+                        'Tickets.Section': t7,
+                        'Tickets.Row': t8,
+                        'Tickets.Quantity': t9,
+                        'Tickets.MaskedQuantity': t10,
+                        'Tickets.DoNotWaste': t11,
+                        'Tickets.Seating': t12,
+                        'Tickets.Stock': t13,
+                        'Tickets.SHDeliveryMethod': t14,
+                        'Tickets.PredeliverToSH': t15,
+                        'TicketSeats': t16,
+                        'Tickets.PublicNotes': t17,
+                        'Tickets.InternalNotes': t18,
+                        'Tickets.BrokerNotes': t19,
+                        'Tickets.ControlNotes': t20,
+                        'SplitOptions': t21,
+                        'InHandDetails': t22,
+                        'Tickets.DeliveryOption': t23,
+                        'Tickets.ReferenceNumber': t24,
+                        'FacePrice': t25,
+                        'PurchasePrice': t26,
+                        'SellPrice': t27,
+                        'Tickets.Discount': t28,
+                        'Tickets.Overs': t29,
+                        'Tickets.Tax': t30,
+                        'Tickets.Tags': t31,
+                        'Tickets.MinimumPayout': t32,
+                        'Tickets.HideSeats': t33,
+                        'Tickets.ZonePricing': t34,
+                        'Tickets.Location': t35
+                                                
                     }
-                    del row['SpecOption']
+                    del row['Tickets.SHEventId']
+                    del row['Tickets.EventId']
+                    del row['Tickets.VenueId']
+                    del row['Tickets.Event']
+                    del row['Tickets.EventDate']
+                    del row['Tickets.Venue']
+                    del row['Tickets.Section']
+                    del row['Tickets.Row']
+                    del row['Tickets.Quantity']
+                    del row['Tickets.MaskedQuantity']
+                    del row['Tickets.DoNotWaste']
+                    del row['Tickets.Seating']
+                    del row['Tickets.Stock']
+                    del row['Tickets.SHDeliveryMethod']
+                    del row['Tickets.PredeliverToSH']
                     del row['TicketSeats']
+                    del row['Tickets.PublicNotes']
+                    del row['Tickets.InternalNotes']
+                    del row['Tickets.BrokerNotes']
+                    del row['Tickets.ControlNotes']
                     del row['SplitOptions']
                     del row['InHandDetails']
+                    del row['Tickets.DeliveryOption']
+                    del row['Tickets.ReferenceNumber']
                     del row['FacePrice']
                     del row['PurchasePrice']
                     del row['SellPrice']
-                    del row['Tickets.SHEventId']
+                    del row['Tickets.Discount']
+                    del row['Tickets.Overs']
+                    del row['Tickets.Tax']
+                    del row['Tickets.Tags']
+                    del row['Tickets.MinimumPayout']
+                    del row['Tickets.HideSeats']
+                    del row['Tickets.ZonePricing']
+                    del row['Tickets.Location']
                 
         return data
             
