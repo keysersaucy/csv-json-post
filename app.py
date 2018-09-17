@@ -118,7 +118,7 @@ def middleware_factory():
                 del row['SellPrice.Currency']
                 del row['SellPrice.Amount']
     
-                if 'Consignment' in row and 'Shipping' in row and 'PurchaseOrder.Currency' in row and 'PurchaseOrder.PODate' in row and 'PurchaseOrder.ShipFromContactId' in row and 'PurchaseOrder.BillToAddressId' in row and 'PurchaseOrder.ShipToAddressId' in row and 'PurchaseOrder.VendorCSRId' in row and 'PurchaseOrder.POType' in row and 'PurchaseOrder.ExternalOrderNumber' in row and 'PurchaseOrder.Notes' in row and 'PurchaseOrder.IsShippingCostIncludedinTicketPrice' in row:
+                if 'Consignment' in row and 'Shipping' in row and 'PurchaseOrder.Currency' in row and 'PurchaseOrder.PODate' in row and 'PurchaseOrder.ShipFromContactId' in row and 'PurchaseOrder.BillToAddressId' in row and 'PurchaseOrder.ShipToAddressId' in row and 'PurchaseOrder.VendorCSRId' in row and 'PurchaseOrder.POType' in row and 'PurchaseOrder.ExternalOrderNumber' in row and 'PurchaseOrder.Notes' in row and 'PurchaseOrder.IsShippingCostIncludedinTicketPrice' in row and 'SpecOption' in row and 'TicketSeats' in row and 'SplitOptions' in row and 'InHandDetails' in row and 'FacePrice' in row and 'PurchasePrice' in row and 'SellPrice' in row and 'Tickets.SHEventId' in row:
                     
                     p1 = row['PurchaseOrder.Currency']
                     p2 = row['PurchaseOrder.PODate']
@@ -158,6 +158,33 @@ def middleware_factory():
                     del row['PurchaseOrder.Notes']
                     del row['PurchaseOrder.IsShippingCostIncludedinTicketPrice']
                     del row['Shipping']
+                    
+                    t1 = row['SpecOption']
+                    t2 = row['TicketSeats']
+                    t3 = row['SplitOptions']
+                    t4 = row['InHandDetails']
+                    t5 = row['FacePrice']
+                    t6 = row['PurchasePrice']
+                    t7 = row['SellPrice']
+                    t8 = row['Tickets.SHEventId']
+                    row['Tickets'] = {
+                        'SpecOption': t1,
+                        'TicketSeats': t2,
+                        'SplitOptions': t3,
+                        'InHandDetails': t4,
+                        'FacePrice': t5,
+                        'PurchasePrice': t6,
+                        'SellPrice': t7,
+                        'Tickets.SHEventId': t8,
+                    }
+                    del row['SpecOption']
+                    del row['TicketSeats']
+                    del row['SplitOptions']
+                    del row['InHandDetails']
+                    del row['FacePrice']
+                    del row['PurchasePrice']
+                    del row['SellPrice']
+                    del row['Tickets.SHEventId']
                 
         return data
             
