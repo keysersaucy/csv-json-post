@@ -43,20 +43,47 @@ def middleware_factory():
                 del row['Shipping.DateExpected']
                 del row['Shipping.Note']
                 
-                if 'Consignment' in row and 'Shipping' in row and 'PurchaseOrder.Currency' in row:
+                if 'Consignment' in row and 'Shipping' in row and 'PurchaseOrder.Currency' in row and 'PurchaseOrder.PODate' in row and 'PurchaseOrder.ShipFromContactId' in row and 'PurchaseOrder.BillToAddressId' in row and 'PurchaseOrder.ShipToAddressId' in row and 'PurchaseOrder.VendorCSRId' in row and 'PurchaseOrder.POType' in row and 'PurchaseOrder.ExternalOrderNumber' in row and 'PurchaseOrder.Notes' in row and 'PurchaseOrder.IsShippingCostIncludedinTicketPrice' in row:
                     
                     p1 = row['PurchaseOrder.Currency']
+                    p2 = row['PurchaseOrder.PODate']
+                    p3 = row['PurchaseOrder.ShipFromContactId']
+                    p4 = row['PurchaseOrder.BillToAddressId']
+                    p5 = row['PurchaseOrder.ShipToAddressId']
+                    p6 = row['PurchaseOrder.VendorCSRId']
+                    p7 = row['PurchaseOrder.POType']
                     p8 = row['Consignment']
+                    p9 = row['PurchaseOrder.ExternalOrderNumber']
+                    p10 = row['PurchaseOrder.Notes']
+                    p11 = row['PurchaseOrder.IsShippingCostIncludedinTicketPrice']
                     p12 = row['Shipping']
                     row['PurchaseOrder'] = {
                         'Currency': p1,
+                        'PODate': p2,
+                        'ShipFromContactId': p3,
+                        'BillToAddressId': p4,
+                        'ShipToAddressId': p5,
+                        'VendorCSRId': p6,
+                        'POType': p7,
                         'Consignment': p8,
+                        'ExternalOrderNumber': p9,
+                        'Notes': p10,
+                        'IsShippingCostIncludedinTicketPrice': p11,
                         'Shipping': p12
                     }
                     del row['PurchaseOrder.Currency']
+                    del row['PurchaseOrder.PODate']
+                    del row['PurchaseOrder.ShipFromContactId']
+                    del row['PurchaseOrder.BillToAddressId']
+                    del row['PurchaseOrder.ShipToAddressId']
+                    del row['PurchaseOrder.VendorCSRId']
+                    del row['PurchaseOrder.POType']
                     del row['Consignment']
+                    del row['PurchaseOrder.ExternalOrderNumber']
+                    del row['PurchaseOrder.Notes']
+                    del row['PurchaseOrder.IsShippingCostIncludedinTicketPrice']
                     del row['Shipping']
-        
+                
         return data
             
            
