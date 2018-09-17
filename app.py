@@ -120,10 +120,10 @@ def middleware_factory():
                 
                 z1 = row['Zones.ZoneCode']
                 z2 = row['Zones.Broadcast']
-                row['Zones'] = {
+                row['Zones'] = [{
                     'ZoneCode': z1,
                     'Broadcast': z2
-                }
+                }]
                 del row['Zones.ZoneCode']
                 del row['Zones.Broadcast']
     
@@ -203,7 +203,7 @@ def middleware_factory():
                     t33 = row['Tickets.HideSeats']
                     t34 = row['Tickets.ZonePricing']
                     t35 = row['Tickets.Location']
-                    row['Tickets'] = {
+                    row['Tickets'] = [{
                         'SHEventId': t1,
                         'EventId': t2,
                         'VenueId': t3,
@@ -234,13 +234,13 @@ def middleware_factory():
                         'Discount': t28,
                         'Overs': t29,
                         'Tax': t30,
-                        'Tags': t31,
+                        'Tags': [t31],
                         'MinimumPayout': t32,
                         'HideSeats': t33,
                         'ZonePricing': t34,
                         'Location': t35
                                                 
-                    }
+                    }]
                     del row['Tickets.SHEventId']
                     del row['Tickets.EventId']
                     del row['Tickets.VenueId']
@@ -305,7 +305,7 @@ def index():
         data = []
         for row in csv.DictReader(text, quotechar='"', quoting=csv.QUOTE_ALL, skipinitialspace=True):
             data.append(row)
-
+             
         if 'middlewares' in request.form:
             for x in request.form.getlist('middlewares'):
                 data = middlewares[x](data)
