@@ -8,7 +8,7 @@ app = Flask(__name__)
 def middleware_factory():
     def nest(data):
         for row in data:
-            if 'Consignment.Operation' in row and 'Consignment.Commission' in row and 'Shipping.Cost' in row and 'Shipping.TrackingNumber' in row and 'Shipping.Service' in row and 'Shipping.Carrier' in row and 'Shipping.Type' in row and 'Shipping.DateExpected' in row and 'Shipping.Note' in row and 'SpecOption.ExpirationType' in row and 'SpecOption.ExpirationDate' in row and 'SpecOption.ExpirationDays' in row and 'TicketSeats.Seat' in row and 'TicketSeats.Barcode' in row and 'TicketSeats.ReferenceNumber' in row and 'SplitOptions.SplitOption' in row and 'SplitOptions.Splits' in row and 'SplitOptions.OverrideSplitOption' in row and 'InHandDetails.InHandStatus' in row and 'InHandDetails.InHandDays' in row and 'InHandDetails.InHandDate' in row and 'FacePrice.Currency' in row and 'FacePrice.Amount' in row and 'PurchasePrice.Currency' in row and 'PurchasePrice.Amount' in row and 'SellPrice.Currency' in row and 'SellPrice.Amount' in row: #and 'Zones.ZoneCode' in row and 'Zones.Broadcast' in row:
+            if 'Consignment.Operation' in row and 'Consignment.Commission' in row and 'Shipping.Cost' in row and 'Shipping.TrackingNumber' in row and 'Shipping.Service' in row and 'Shipping.Carrier' in row and 'Shipping.Type' in row and 'Shipping.DateExpected' in row and 'Shipping.Note' in row and 'SpecOption.ExpirationType' in row and 'SpecOption.ExpirationDate' in row and 'SpecOption.ExpirationDays' in row and 'TicketSeats.Seat' in row and 'TicketSeats.Barcode' in row and 'TicketSeats.ReferenceNumber' in row and 'SplitOptions.SplitOption' in row and 'SplitOptions.Splits' in row and 'SplitOptions.OverrideSplitOption' in row and 'InHandDetails.InHandStatus' in row and 'InHandDetails.InHandDays' in row and 'InHandDetails.InHandDate' in row and 'FacePrice.Currency' in row and 'FacePrice.Amount' in row and 'PurchasePrice.Currency' in row and 'PurchasePrice.Amount' in row and 'SellPrice.Currency' in row and 'SellPrice.Amount' in row and 'Zones.ZoneCode' in row and 'Zones.Broadcast' in row:
             #if 'Consignment.Operation' in row and 'Consignment.Commission' in row and 'Shipping.Cost' in row and 'Shipping.TrackingNumber' in row and 'Shipping.Service' in row and 'Shipping.Carrier' in row and 'Shipping.Type' in row and 'Shipping.DateExpected' in row and 'Shipping.Note' in row and 'PurchaseOrder.Currency' in row and 'PurchaseOrder.PODate' in row and 'PurchaseOrder.ShipFromContactId' in row and 'PurchaseOrder.BillToAddressId' in row and 'PurchaseOrder.ShipToAddressId' in row and 'PurchaseOrder.VendorCSRId' in row and 'PurchaseOrder.POType' in row and 'PurchaseOrder.ExternalOrderNumber' in row and 'PurchaseOrder.Notes' in row and 'PurchaseOrder.IsShippingCostIncludedinTicketPrice' in row and 'SpecOption.ExpirationType' in row and 'SpecOption.ExpirationDate' in row and 'SpecOption.ExpirationDays' in row and 'TicketSeats.Seat' in row and 'TicketSeats.Barcode' in row and 'TicketSeats.ReferenceNumber' in row and 'SplitOptions.SplitOption' in row and 'SplitOptions.Splits' in row and 'SplitOptions.OverrideSplitOption' in row and 'InHandDetails.InHandStatus' in row and 'InHandDetails.InHandDays' in row and 'InHandDetails.InHandDate' in row and 'FacePrice.Currency' in row and 'FacePrice.Amount' in row and 'PurchasePrice.Currency' in row and 'PurchasePrice.Amount' in row and 'SellPrice.Currency' in row and 'SellPrice.Amount' in row and 'Tickets.SHEventId' in row and 'Tickets.EventId' in row and 'Tickets.VenueId' in row and 'Tickets.Event' in row and 'Tickets.EventDate' in row and 'Tickets.Venue' in row and 'Tickets.Section' in row and 'Tickets.Row' in row and 'Tickets.Quantity' in row and 'Tickets.MaskedQuantity' in row and 'Tickets.DoNotWaste' in row and 'Tickets.Seating' in row and 'Tickets.Stock' in row and 'Tickets.SHDeliveryMethod' in row and 'Tickets.PredeliverToSH' in row and 'Tickets.PublicNotes' in row and 'Tickets.InternalNotes' in row and 'Tickets.BrokerNotes' in row and 'Tickets.ControlNotes' in row and 'Tickets.DeliveryOption' in row and 'Tickets.ReferenceNumber' in row and 'Tickets.Discount' in row and 'Tickets.Overs' in row and 'Tickets.Tax' in row and 'Tickets.Tags' in row and 'Tickets.MinimumPayout' in row and 'Tickets.HideSeats' in row and 'Tickets.ZonePricing' in row and 'Tickets.Location' in row and 'Zones.ZoneCode' in row and 'Zones.Broadcast' in row and 'Broadcast.BroadcastTo' in row:
                 c1 = row['Consignment.Operation']
                 c2 = row['Consignment.Commission']
@@ -117,6 +117,15 @@ def middleware_factory():
                 }
                 del row['SellPrice.Currency']
                 del row['SellPrice.Amount']
+                
+                z1 = row['Zones.ZoneCode']
+                z2 = row['Zones.Broadcast']
+                row['Zones'] = {
+                    'ZoneCode': z1,
+                    'Broadcast': z2
+                }
+                del row['Zones.ZoneCode']
+                del row['Zones.Broadcast']
     
                 if 'Consignment' in row and 'Shipping' in row and 'PurchaseOrder.Currency' in row and 'PurchaseOrder.PODate' in row and 'PurchaseOrder.ShipFromContactId' in row and 'PurchaseOrder.BillToAddressId' in row and 'PurchaseOrder.ShipToAddressId' in row and 'PurchaseOrder.VendorCSRId' in row and 'PurchaseOrder.POType' in row and 'PurchaseOrder.ExternalOrderNumber' in row and 'PurchaseOrder.Notes' in row and 'PurchaseOrder.IsShippingCostIncludedinTicketPrice' in row and 'SpecOption' in row and 'TicketSeats' in row and 'SplitOptions' in row and 'InHandDetails' in row and 'FacePrice' in row and 'PurchasePrice' in row and 'SellPrice' in row and 'Tickets.SHEventId' in row and 'Tickets.EventId' in row and 'Tickets.VenueId' in row and 'Tickets.Event' in row and 'Tickets.EventDate' in row and 'Tickets.Venue' in row and 'Tickets.Section' in row and 'Tickets.Row' in row and 'Tickets.Quantity' in row and 'Tickets.MaskedQuantity' in row and 'Tickets.DoNotWaste' in row and 'Tickets.Seating' in row and 'Tickets.Stock' in row and 'Tickets.SHDeliveryMethod' in row and 'Tickets.PredeliverToSH' in row and 'Tickets.PublicNotes' in row and 'Tickets.InternalNotes' in row and 'Tickets.BrokerNotes' in row and 'Tickets.ControlNotes' in row and 'Tickets.DeliveryOption' in row and 'Tickets.ReferenceNumber' in row and 'Tickets.Discount' in row and 'Tickets.Overs' in row and 'Tickets.Tax' in row and 'Tickets.Tags' in row and 'Tickets.MinimumPayout' in row and 'Tickets.HideSeats' in row and 'Tickets.ZonePricing' in row and 'Tickets.Location' in row:
                     
@@ -195,41 +204,41 @@ def middleware_factory():
                     t34 = row['Tickets.ZonePricing']
                     t35 = row['Tickets.Location']
                     row['Tickets'] = {
-                        'Tickets.SHEventId': t1,
-                        'Tickets.EventId': t2,
-                        'Tickets.VenueId': t3,
-                        'Tickets.Event': t4,
-                        'Tickets.EventDate': t5,
-                        'Tickets.Venue': t6,
-                        'Tickets.Section': t7,
-                        'Tickets.Row': t8,
-                        'Tickets.Quantity': t9,
-                        'Tickets.MaskedQuantity': t10,
-                        'Tickets.DoNotWaste': t11,
-                        'Tickets.Seating': t12,
-                        'Tickets.Stock': t13,
-                        'Tickets.SHDeliveryMethod': t14,
-                        'Tickets.PredeliverToSH': t15,
+                        'SHEventId': t1,
+                        'EventId': t2,
+                        'VenueId': t3,
+                        'Event': t4,
+                        'EventDate': t5,
+                        'Venue': t6,
+                        'Section': t7,
+                        'Row': t8,
+                        'Quantity': t9,
+                        'MaskedQuantity': t10,
+                        'DoNotWaste': t11,
+                        'Seating': t12,
+                        'Stock': t13,
+                        'SHDeliveryMethod': t14,
+                        'PredeliverToSH': t15,
                         'TicketSeats': t16,
-                        'Tickets.PublicNotes': t17,
-                        'Tickets.InternalNotes': t18,
-                        'Tickets.BrokerNotes': t19,
-                        'Tickets.ControlNotes': t20,
+                        'PublicNotes': t17,
+                        'InternalNotes': t18,
+                        'BrokerNotes': t19,
+                        'ControlNotes': t20,
                         'SplitOptions': t21,
                         'InHandDetails': t22,
-                        'Tickets.DeliveryOption': t23,
-                        'Tickets.ReferenceNumber': t24,
+                        'DeliveryOption': t23,
+                        'ReferenceNumber': t24,
                         'FacePrice': t25,
                         'PurchasePrice': t26,
                         'SellPrice': t27,
-                        'Tickets.Discount': t28,
-                        'Tickets.Overs': t29,
-                        'Tickets.Tax': t30,
-                        'Tickets.Tags': t31,
-                        'Tickets.MinimumPayout': t32,
-                        'Tickets.HideSeats': t33,
-                        'Tickets.ZonePricing': t34,
-                        'Tickets.Location': t35
+                        'Discount': t28,
+                        'Overs': t29,
+                        'Tax': t30,
+                        'Tags': t31,
+                        'MinimumPayout': t32,
+                        'HideSeats': t33,
+                        'ZonePricing': t34,
+                        'Location': t35
                                                 
                     }
                     del row['Tickets.SHEventId']
