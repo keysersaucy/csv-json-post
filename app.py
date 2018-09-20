@@ -14,11 +14,11 @@ def middleware_factory():
                 ts1 = row['TicketSeats.Seat']
                 ts2 = row['TicketSeats.Barcode']
                 ts3 = row['TicketSeats.ReferenceNumber']
-                row['TicketSeats'] = [{
+                row['TicketSeats'] = {
                     'Seat': ts1,
                     'Barcode': ts2,
                     'ReferenceNumber': ts3
-                }]
+                }
                 del row['TicketSeats.Seat']
                 del row['TicketSeats.Barcode']
                 del row['TicketSeats.ReferenceNumber']
