@@ -185,15 +185,6 @@ def middleware_factory():
                     del row['Tickets.ZonePricing']
                     del row['Tickets.Location']
                     
-                    b1 = row['Broadcast.BroadcastTo']
-                    b2 = row['Zones']
-                    row['Broadcast'] = {
-                        'BroadcastTo': b1,
-                        'Zones': b2
-                    }
-                    del row['Broadcast.BroadcastTo']
-                    del row['Zones']
-                
         return data
             
            
